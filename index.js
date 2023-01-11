@@ -1,37 +1,32 @@
 /*
-ex08: function to check the answer
+homework: star pattern
 challenge
-Your function should take a question and the right answer.
-Ask your user to answer the question.
-check the answer and increment score (global variable)
-tell your user whether the answer was correct or not
-understand
-A function can do multiple things
-sometimes, the output can be a change in the global variable
-looking back
-Up until now, we have a function() which is kind of a mini-program to do everything which we need to do.
+a program to take input number from user and print stars like this. The below pattern will be printed when the user enters 5.
 
-If you look back now, console.log(), readlineSync() are all just functions isn't it?
+*
+**
+***
+****
+*****
 
-What we need now is a way to run this mini-program again and again. And each time with a different question/answer pair.
+BONUS (optional): Can you print this inverted? Like 5 stars > 4 stars > 3...?
 
-To do this we need to understand a few things.
+understanding
+double loop: HINT
+struggling to form programs when you don't know-how
+looking around the internet to understand the logic
 
 */
 
 var readlineSync = require("readline-sync");
+var userInput = readlineSync.questionInt("How many star do you want to print? ");
 
-
-var score = 0;
-function checkAnswer(question, answer){
-  var userInput = readlineSync.question(question);
-  console.log("answer = "+ userInput);
-  if(userInput === answer){
-    console.log("correct answer");
-    score++;
-  } else {
-    console.log("wrong answer");
+console.log(userInput + " star");
+var star = "";
+for(var i = 0; i <= userInput; i++){
+  for(var j = 0; j < i; j++){
+    star += "* ";
   }
-  console.log("score = "+score);
+    star += "\n";
 }
-console.log(checkAnswer("What is my name? ", "shekhar"));
+console.log(star);
