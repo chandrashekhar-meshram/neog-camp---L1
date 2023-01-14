@@ -2,15 +2,16 @@
 var readlineSync = require("readline-sync");
 
 var score = 0;
-function play(question, answer){
+function play(question, answer) {
   var userInput = readlineSync.question(question);
-  if(userInput === answer){
+  if (userInput.toUpperCase() === answer.toUpperCase()) {
     console.log("Right !");
     score++;
   } else {
     console.log("wrong !")
   }
-  console.log("Your current score - ", score);
+  console.log("Your current score is - ", score);
+  console.log("-----------------------------");
 }
 
 var questions = [
@@ -24,6 +25,8 @@ var questions = [
   }
 ];
 
-for(let i = 0; i < questions.length; i++){
+for (let i = 0; i < questions.length; i++) {
   play(questions[i].question, questions[i].answer);
 }
+console.log("Thanks to play.....");
+console.log("Your final score - ", score);
